@@ -106,18 +106,15 @@ const FilterScene: React.FC = () => {
 
       <Presets defaultValue={NONE} onPresetClick={onPresetClick} />
 
-      <h4>Misc</h4>
+      <h4>Разное</h4>
 
       <button className="btn btn-sm" onClick={onToggleFiltersClick}>
-        Turn filter {applyFilter ? 'off' : 'on'}
-      </button>
-      <button className="btn btn-sm" onClick={onChangeImageClick}>
-        New image
+        Фильтры {applyFilter ? 'Выключить' : 'Включить'}
       </button>
 
-      <div className="margin-bottom-20">
-        <small>Please note that Unsplash will sometime return the same image.</small>
-      </div>
+      <button className="btn btn-sm" onClick={onChangeImageClick}>
+        Новое изображение
+      </button>
     </div>
   );
 };

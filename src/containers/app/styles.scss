@@ -1,3 +1,17 @@
 .app-container {
-  padding: 32px 0 32px;
+
+  .app_decoration {
+    &__header {
+      position: absolute;
+      top: 0;
+      transform: rotate(180deg);
+    }
+    &__footer {
+
+    }
+  }
+
+  .app-body {
+    padding: 72px 0 32px;
+  }
 }

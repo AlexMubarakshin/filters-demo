@@ -1,4 +1,4 @@
-$main-color: #66bfbf;
+$main-color: #086972;
 
 @mixin md() {
   @media (min-width: 600px) {
@@ -14,7 +14,6 @@ $main-color: #66bfbf;
 
 body {
   background: #fdfdfd;
-  padding-bottom: 40px;
 }
 
 a,
@@ -25,7 +24,7 @@ a:focus {
 }
 
 a:hover {
-  color: darken($main-color, 20);
+  color: $main-color;
 }
 
 h2, h3 {
@@ -154,7 +153,7 @@ h2, h3 {
   background: #fff;
 
   &:hover {
-    background: darken($main-color, 20);
+    background: $main-color;
   }
 
   &:focus {

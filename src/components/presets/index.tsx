@@ -17,21 +17,21 @@ const Presets: React.FC<PresetsProps> = ({ defaultValue, onPresetClick }: Preset
   return (
     <div>
       <div>
-        <h4>Presets</h4>
+        <h4>Пресеты</h4>
         <button
           className="btn btn-sm"
           onClick={() => onPresetClick({ filter: defaultValue, values: defaultValue, applyFilter: true })}
         >
-          None
+          Не выбрано
         </button>
         <button className="btn btn-sm" onClick={() => onPresetClick({ filter: 'invert', applyFilter: true })}>
-          Invert
+          Инвертировать
         </button>
         <button className="btn btn-sm" onClick={() => onPresetClick({ filter: 'grayscale', applyFilter: true })}>
-          Grayscale
+          Оттенки серого
         </button>
         <button className="btn btn-sm" onClick={() => onPresetClick({ filter: 'sepia', applyFilter: true })}>
-          Sepia
+          Сепия
         </button>
         <button
           className="btn btn-sm"
@@ -44,7 +44,7 @@ const Presets: React.FC<PresetsProps> = ({ defaultValue, onPresetClick }: Preset
             })
           }
         >
-          Duotone (red / blue)
+          Дуотон (красно-синий)
         </button>
         <button
           className="btn btn-sm"
@@ -57,7 +57,7 @@ const Presets: React.FC<PresetsProps> = ({ defaultValue, onPresetClick }: Preset
             })
           }
         >
-          Duotone (green / purple)
+          Дуотон (Зелено-фиолетовый)
         </button>
         <button
           className="btn btn-sm"
@@ -70,7 +70,7 @@ const Presets: React.FC<PresetsProps> = ({ defaultValue, onPresetClick }: Preset
             })
           }
         >
-          Duotone (light blue/orange)
+          Дуотон (Сине-оранжевый)
         </button>
         <button
           className="btn btn-sm"
@@ -82,7 +82,7 @@ const Presets: React.FC<PresetsProps> = ({ defaultValue, onPresetClick }: Preset
             })
           }
         >
-          Duotone (blue / red)
+          Дуотон (Сине-красный)
         </button>
       </div>
     </div>
