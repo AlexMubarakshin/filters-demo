@@ -23,7 +23,7 @@ type FilterState = {
   colorTwo: FilterValues[];
 };
 
-const NONE: FilterValues = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0];
+export const NONE: FilterValues = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0];
 
 const filterInitialState: FilterState = {
   values: NONE,

@@ -6,25 +6,9 @@ import ImageFilter from 'react-image-filter';
 import ImageUploader from 'react-images-upload';
 
 import Sliders from '../sliders';
-import useFilters from './state';
+import useFilters, { NONE } from './state';
 import Presets from '../presets';
-
-function triggerDownload(imgURI) {
-  const evt = new MouseEvent('click', {
-    view: window,
-    bubbles: false,
-    cancelable: true,
-  });
-
-  const a = document.createElement('a');
-  a.setAttribute('download', 'filtred_image.png');
-  a.setAttribute('href', imgURI);
-  a.setAttribute('target', '_blank');
-
-  a.dispatchEvent(evt);
-}
-
-const NONE = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0];
+import download from '../../utils/download';
 
 const DEFAULT_IMAGE_KEY = new Date().getTime();
 
@@ -50,8 +34,6 @@ const labels = [
   'Alpha to Alpha',
   'Add to Alpha',
 ];
-
-type FilterSceneProps = unknown;
 
 const FilterScene: React.FC = () => {
   const [
@@ -119,7 +101,7 @@ const FilterScene: React.FC = () => {
 
   const onDownloadClick = React.useCallback(() => {
     const svg = document.querySelector('.ImageFilter-svg');
-    const canvas: any = document.createElement('canvas');
+    const canvas: HTMLCanvasElement = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const data = new XMLSerializer().serializeToString(svg);
     const DOMURL: any = window.URL || window.webkitURL || window;
@@ -134,7 +116,7 @@ const FilterScene: React.FC = () => {
 
       const imgURI = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
 
-      triggerDownload(imgURI);
+      download(imgURI);
     };
 
     img.src = url;
@@ -157,8 +139,6 @@ const FilterScene: React.FC = () => {
         <>
           <div className="ImageWrapper">
             <ImageFilter
-              // image={ 'https://amazingslider.com/wp-content/uploads/2012/12/dandelion.jpg' }
-              // image={`https://source.unsplash.com/random/1200x800?time=${currentKey}`}
               image={image}
               key={imageKey}
               // preserveAspectRatio='cover'
